@@ -26,4 +26,8 @@ if __name__ == "__main__":
     stack.queue = [34, 3, 31, 98, 92, 32]
 
     print("Sorted stack: ")
+    print("Case 1:")
+    print(sort_stack(stack).queue)
+    print("Case 2:")
+    stack.queue = []
     print(sort_stack(stack).queue)

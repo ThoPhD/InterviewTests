@@ -4,6 +4,8 @@ from collections import Counter, defaultdict
 from itertools import product
 from operator import itemgetter
 
+MAX_SENTENCE = 3
+
 
 class AutoCompleteSearch(object):
     def __init__(self) -> object:
@@ -59,5 +61,20 @@ if __name__ == "__main__":
 
     result = obj.search(search_key)
     sorted_result = sorted(result.items(), key=itemgetter(1), reverse=1)
-    for sentence in sorted_result[:3]:
+    for sentence in sorted_result[:MAX_SENTENCE]:
         print(sentence[0])
+    print("==========================")
+
+    search_key = "love you #"
+    result = obj.search(search_key)
+    sorted_result = sorted(result.items(), key=itemgetter(1), reverse=1)
+    for sentence in sorted_result[:MAX_SENTENCE]:
+        print(sentence[0])
+    print("==========================")
+
+    search_key = "i love you"
+    result = obj.search(search_key)
+    if result:
+        sorted_result = sorted(result.items(), key=itemgetter(1), reverse=1)
+        for sentence in sorted_result[:MAX_SENTENCE]:
+            print(sentence[0])
